@@ -1,11 +1,101 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Dashboard</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-<h1>Dashboard Working ✅</h1>
+{% block title %}
+Dashboard
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="mb-4">
+
+        <h1 class="fw-bold">
+            Welcome Back 👋
+        </h1>
+
+        <p class="text-secondary">
+            Manage your encryption, reports and security tools from one place.
+        </p>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-lg-3 col-md-6">
+            <div class="dashboard-card">
+                <h5>AES</h5>
+                <h2>0</h2>
+                <small>Encryptions</small>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="dashboard-card">
+                <h5>DES</h5>
+                <h2>0</h2>
+                <small>Encryptions</small>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="dashboard-card">
+                <h5>RSA</h5>
+                <h2>0</h2>
+                <small>Encryptions</small>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+            <div class="dashboard-card">
+                <h5>Hybrid</h5>
+                <h2>0</h2>
+                <small>Encryptions</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-lg-8">
+
+            <div class="dashboard-panel">
+
+                <h4>Recent Activity</h4>
+
+                <p class="text-secondary">
+                    No encryption activity yet.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-4">
+
+            <div class="dashboard-panel">
+
+                <h4>Quick Actions</h4>
+
+                <button class="btn btn-info w-100 mb-2">
+                    Encrypt Text
+                </button>
+
+                <button class="btn btn-outline-info w-100 mb-2">
+                    Encrypt File
+                </button>
+
+                <button class="btn btn-outline-light w-100">
+                    View Reports
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

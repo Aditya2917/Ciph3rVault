@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+
+{% block title %}
+Encryption Workspace
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="mb-4">
+
+        <h1 class="fw-bold">
+            Encryption Workspace
+        </h1>
+
+        <p class="text-secondary">
+            Encrypt or decrypt text using AES, DES, RSA or Hybrid Encryption.
+        </p>
+
+    </div>
+
+    <form method="POST" class="card p-4 bg-dark border-secondary">
+
+    {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+
+            <ul class="nav nav-tabs mb-4" id="algorithmTabs">
+
+    <li class="nav-item">
+        <button type="button"
+        class="nav-link active"
+                data-bs-toggle="tab"
+                data-bs-target="#aes">
+            AES
+        </button>
+        
+    </li>
+
+    <li class="nav-item">
+        <button type="button"
+        class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#des">
+            DES
+        </button>
+    </li>
+
+    <li class="nav-item">
+        <button type="button"
+        class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#rsa">
+            RSA
+        </button>
+    </li>
+
+    <li class="nav-item">
+        <button type="button"
+        class="nav-link"
+                data-bs-toggle="tab"
+                data-bs-target="#hybrid">
+            Hybrid
+        </button>
+    </li>
+
+</ul>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Operation
+            </label>
+
+            <div class="mb-3">
+
+    {% for subfield in form.operation %}
+
+    <div class="form-check form-check-inline">
+
+        {{ subfield(class="form-check-input") }}
+
+        {{ subfield.label(class="form-check-label text-white") }}
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Input Text
+            </label>
+
+            {{ form.input_text(class="form-control", rows="6") }}
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Secret Key
+            </label>
+
+            {{ form.secret_key(class="form-control") }}
+
+        </div>
+
+        <div class="mb-4">
+
+            <button class="btn btn-outline-info">
+                Generate Key
+            </button>
+
+        </div>
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Output
+            </label>
+
+            <textarea
+            class="form-control"
+            rows="6"
+            readonly
+            >{{ result }}</textarea>
+
+        </div>
+
+        <div class="d-flex gap-2 flex-wrap">
+
+            {{ form.submit(class="btn btn-info") }}
+
+            <button class="btn btn-secondary">
+                Clear
+            </button>
+
+            <button class="btn btn-success">
+                Copy
+            </button>
+
+            <button class="btn btn-warning">
+                Download
+            </button>
+
+        </div>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
