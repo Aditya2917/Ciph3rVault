@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, flash
 
 from flask_login import login_required
 
@@ -17,17 +17,15 @@ def encryption():
 
     if form.validate_on_submit():
         print("FORM SUBMITTED")
-        try:
-            print("Selected Operation:", form.operation.data)
-            result = process_aes(
-                form.input_text.data,
-                form.secret_key.data,
-                form.operation.data
-            )
-
-        except Exception as e:
-
-            result = str(e)
+        success, result = process_aes(
+    form.input_text.data,
+    form.secret_key.data,
+    form.operation.data
+)
+        if success:
+            flash("Operation completed successfully.", "success")
+        else:
+            flash(result, "danger")
 
     return render_template(
         "encryption.html",
