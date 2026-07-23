@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+</head>
+<body>
+
+<h1>CipherVault Register</h1>
+
+<form method="POST">
+
+    {{ form.hidden_tag() }}
+
+    <p>Username</p>
+    {{ form.username() }}
+
+    <br><br>
+
+    <p>Email</p>
+    {{ form.email() }}
+
+    <br><br>
+
+    <p>Password</p>
+    {{ form.password() }}
+
+    <br><br>
+
+    <p>Confirm Password</p>
+    {{ form.confirm_password() }}
+
+    <br><br>
+
+    {{ form.submit() }}
+
+</form>
+
+<p>
+    Already have an account?
+    <a href="{{ url_for('auth.login') }}">
+        Login
+    </a>
+</p>
+
+</body>
+</html>
